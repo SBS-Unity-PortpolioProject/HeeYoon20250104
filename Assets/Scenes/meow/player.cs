@@ -8,8 +8,7 @@ public class player : MonoBehaviour
 
     Rigidbody2D rigid;
 
-    public float speed; 
- 
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +20,13 @@ public class player : MonoBehaviour
     void Update()
     {
         input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
+        input.y = Input.GetAxisRaw("Vertical"); 
     }
 
     private void FixedUpdate()
     {
         Vector2 aVecter = input.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition( rigid.position + aVecter);
+
     }
 }

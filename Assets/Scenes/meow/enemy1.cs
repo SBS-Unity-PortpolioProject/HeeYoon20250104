@@ -12,7 +12,7 @@ public class enemy1 : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriter;
 
-    void Awack()
+    void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
@@ -24,6 +24,6 @@ public class enemy1 : MonoBehaviour
         Vector2 dirVec  = target.position - rigid.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
-        rigid.velocity = Vector2.zero;
+        rigid.velocity = Vector2.zero;  
     }
 }
