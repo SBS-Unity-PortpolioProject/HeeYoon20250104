@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class player : MonoBehaviour
 {
@@ -9,14 +10,18 @@ public class player : MonoBehaviour
     Rigidbody2D rigid;
 
     public float speed;
+    SpriteRenderer spriter;
+    Animator anim;
+    
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        spriter = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         input.x = Input.GetAxisRaw("Horizontal");
@@ -28,5 +33,15 @@ public class player : MonoBehaviour
         Vector2 aVecter = input.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition( rigid.position + aVecter);
 
+    }
+
+    void LateUpdate()
+    {
+       
+
+        if( input.x != 0 )
+        {
+            spriter.flipX = input.x < 0;
+        }
     }
 }
