@@ -7,7 +7,7 @@ public class enemy1 : MonoBehaviour
     public float speed;
     public Rigidbody2D target;
 
-    bool isLive;
+    bool isLive = true; //юс╫ц╥н
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
@@ -21,9 +21,18 @@ public class enemy1 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!isLive)
+            return;
+        
+
         Vector2 dirVec  = target.position - rigid.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
         rigid.velocity = Vector2.zero;  
+    }
+
+    private void LateUpdate()
+    {
+        spriter.flipX = target.position.x < rigid.position.x;
     }
 }
