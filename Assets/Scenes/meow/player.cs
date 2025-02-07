@@ -37,8 +37,6 @@ public class player : MonoBehaviour
 
     void LateUpdate()
     {
-       
-
         if( input.x != 0 )
         {
             spriter.flipX = input.x < 0;
