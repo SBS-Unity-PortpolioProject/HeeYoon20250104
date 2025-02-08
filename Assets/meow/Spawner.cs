@@ -18,22 +18,24 @@ public class Spawner : MonoBehaviour
 
         if (timer > 0.2f)
         {
-            GameManager.instance.pool.Get(1);
+            spawn();
             timer = 0;
         }
 
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             GameManager.instance.pool.Get(1);
         }
-
-        void spawn()
-        {
-            GameObject emnemy = GameManager.instance.pool.Get(Random.Range(0,2));
-            emnemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
-        }
     }
+
+    void spawn()
+    {
+        GameObject emnemy = GameManager.instance.pool.Get(Random.Range(0, 2));
+        emnemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+    }
+
 }
+
 [System.Serializable]
 public class SpawnData
 {

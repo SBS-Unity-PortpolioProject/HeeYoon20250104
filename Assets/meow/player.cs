@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class player : MonoBehaviour
 {
-    public Vector2 input; 
-
-    Rigidbody2D rigid;
-
+    public Vector2 input;
     public float speed;
+    Rigidbody2D rigid;
+    public Scaner scanner;
+   
     SpriteRenderer spriter;
     Animator anim;
     
@@ -20,6 +20,7 @@ public class player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        scanner = GetComponent<Scaner>(); 
     }
 
     void Update()

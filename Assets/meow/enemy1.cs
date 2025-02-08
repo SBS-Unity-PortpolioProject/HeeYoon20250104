@@ -7,10 +7,10 @@ public class enemy1 : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D target;
-    public float maxHealth;
-    public float health;
+    public float maxHealth = 100;
+    public float health = 100;
 
-    bool isLive = true; //�ӽ÷�
+    bool isLive = true; 
 
     Rigidbody2D rigid;
     Animator anim;
@@ -33,7 +33,7 @@ public class enemy1 : MonoBehaviour
         Vector2 dirVec = target.position - rigid.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
-        rigid.linearVelocity = Vector2.zero;
+        rigid.velocity = Vector2.zero;
     }
 
     private void LateUpdate()
@@ -54,16 +54,15 @@ public class enemy1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"));
-        return;
+        if (collision.CompareTag("Bullet") == false)
+            return;
 
         health -= collision.GetComponent<bullet>().damage;
 
         if (health > 0)
         {
-
+                
         }
-
         else
         {
             Dead();

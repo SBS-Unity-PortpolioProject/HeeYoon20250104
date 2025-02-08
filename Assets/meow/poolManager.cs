@@ -10,16 +10,14 @@ public class c : MonoBehaviour
     // 풀 담당하는 리스트 (배열로 변경)
     List<GameObject>[] pools;
 
-    private void Awake()
+    void Awake()
     {
-        pools = new List<GameObject>[prefabs.Length]; // 배열 생성
+        pools = new List<GameObject>[prefabs.Length];
 
         for (int index = 0; index < pools.Length; index++)
         {
-            pools[index] = new List<GameObject>(); // 각 리스트 초기화
+            pools[index] = new List<GameObject>();
         }
-
-        Debug.Log(pools.Length);
     }
 
     public GameObject Get(int index)
@@ -29,11 +27,11 @@ public class c : MonoBehaviour
         // 선택된 풀에서 오브젝트 가져오기
         foreach(GameObject item in pools[index])
         {
-            if (item.activeSelf)
+            if (!item.activeSelf)
             {
                 select = item;
                 select.SetActive(true);
-                
+                break;
             }
         }
 

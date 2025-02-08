@@ -26,8 +26,8 @@ public class NewBehaviourScript : MonoBehaviour
         float dirX = playerDir.x < 0 ? -1 : 1; // 3항 연산자 ( 조건 ) ? ( turn 값 ) : ( false 값 )
         float dirY = playerDir.y < 0 ? -1 : 1;
 
-        Debug.Log("diffy : " + diffy);
-        Debug.Log("diffx : " + diffx);
+        //Debug.Log("diffy : " + diffy);
+        //Debug.Log("diffx : " + diffx);
 
         switch (transform.tag)
         {
